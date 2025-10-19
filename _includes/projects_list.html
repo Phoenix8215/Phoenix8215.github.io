@@ -1,0 +1,24 @@
+<!-- Projects section: displays all items from _projects collection -->
+{% for project in site.projects %}
+<tr>
+  <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
+    <img src="{{project.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+  </td>
+  <td style="padding:2.5%;width:75%;vertical-align:middle">
+    <h3>{{project.title}}</h3>
+    <br>
+    {% if project.code %}
+    <a href="{{project.code}}">code</a> /
+    {% endif %}
+    {% if project.website %}
+    <a href="{{project.website}}">website</a> /
+    {% endif %}
+    {% if project.paper %}
+    <a href="{{project.paper}}">paper</a> /
+    {% endif %}
+    <p></p>
+    {{ project.excerpt }}
+  </td>
+</tr>
+{% endfor %}
+
