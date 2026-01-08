@@ -1,0 +1,33 @@
+<!-- Contributions section: displays all items from _contributions collection in two columns -->
+<tr>
+  <td style="padding:2.5%;padding-top:1%;width:100%;vertical-align:top">
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+      <tr>
+        {% for contrib in site.contributions %}
+        <td style="width:50%;vertical-align:top;padding:10px;">
+          {% if contrib.repo %}
+          <h3><a href="{{contrib.repo}}">{{contrib.title}}</a></h3>
+          {% else %}
+          <h3>{{contrib.title}}</h3>
+          {% endif %}
+          &nbsp;
+          {% if contrib.stars %}
+          <span style="color: #1772d0;">⭐ {{contrib.stars}}</span>
+          {% endif %}
+          {% if contrib.forks %}
+          &nbsp;<span style="color: #666;">🍴 {{contrib.forks}}</span>
+          {% endif %}
+          {% if contrib.pr %}
+          <br><a href="{{contrib.pr}}">pull request</a>
+          {% endif %}
+        </td>
+        {% assign mod = forloop.index | modulo: 2 %}
+        {% if mod == 0 and forloop.last == false %}
+      </tr>
+      <tr>
+        {% endif %}
+        {% endfor %}
+      </tr>
+    </table>
+  </td>
+</tr>

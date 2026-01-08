@@ -1,0 +1,10 @@
+---
+title:  "GeoROS++: A Georeferenced Real-Time Stitching Method for Sparse Aerial Orthophotos"
+date:   2025-10-07 22:21:59 +00:00
+image: /images2/georos++.gif
+categories: research
+author: "Zhe Feng"
+authors: "Jiaming Gu<sup>*</sup>, <strong>Zhe Feng</strong><sup>*</sup>, Weiliang Meng, Guangze Gao, Jianwei Guo, Jiguang Zhang, Xiaopeng Zhang"
+venue: "ACM SIGGRAPH Asia Conference"
+---
+<sup>*</sup>Equal contribution.

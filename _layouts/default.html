@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E00L9PT3V9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E00L9PT3V9');
+  </script>
+  <title>{{ site.name }}</title>
+
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+  <meta name="author" content="{{ site.name }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍉</text></svg>">
+  <!-- <link rel="alternate icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico"> -->
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:60%;vertical-align:middle">
+              <h1>
+                Zhe Feng
+              </h1>
+              <p>
+                I'm currently a graduate student at <a href="https://nlpr-web.ia.ac.cn/cn/index.html">National Laboratory of Pattern Recognition (NLPR)</a>, <a href="http://english.ia.cas.cn/">Institute of Automation, Chinese Academy of Sciences (CASIA)</a>.
+                I am interested in Deep Learning, with a special focus on Computer Vision and Autonomouc Driving. My latest works focus on Efficient Transformer Theory and Vision-based 3D representation learning.
+              </p>
+              <p style="text-align:center">
+                <a target="_blank" href="mailto:fengzhe2024@ia.ac.cn"><i class="fas fa-envelope"></i> Email</a> &nbsp;/&nbsp;
+                <a href="https://github.com/Phoenix8215"><i class="fab fa-github"></i> GitHub</a> &nbsp;/&nbsp;
+                <a href="https://www.zhihu.com/people/fengzhe_love"><i class="fab fa-zhihu"></i> Blog</a> &nbsp;/&nbsp;
+                <a href="https://scholar.google.com/citations?hl=zh-CN&user=oUxIu7IAAAAJ"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+              </p>
+            </td>
+            <td style="padding:2.5%;width:40%;max-width:40%">
+              <img style="width:100%;max-width:100%" alt="profile photo" src="images2/photo.png">
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h2>Research</h2>
+            </td>
+          </tr>
+        </table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          {% include research_list.html %}
+        </table>
+        <br>
+        <br>
+        <br>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h2>Projects</h2>
+              <!-- <p>Besides my work on the RealSense depth sensors and the publications above, a sampling of my publicly disclosed work
+              </p> -->
+            </td>
+          </tr>
+        </table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          {% include projects_list.html %}
+        </table>
+        <br>
+        <br>
+        <br>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:2.5%;padding-bottom:0;width:100%;vertical-align:middle">
+              <h2>Open Source Contributions</h2>
+              <p style="margin-bottom:0;">I actively contribute to open source projects in deep learning, CUDA programming, and model deployment communities.</p>
+            </td>
+          </tr>
+          {% include contributions_list.html %}
+        </table>
+        <br>
+        <br>
+        <br>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h2>Internships</h2>
+              <p>2025.11 - present, <strong>Didi Chuxing Co.Ltd</strong>, Beijing, China. <em>Research Intern</em></p>
+              <p>2025.02 - 2025.11, <strong>Hirain Academia Sinica</strong>, Beijing, China. <em>Engineering Intern</em></p>
+              <p>2024.09 - 2025.01, <strong>Tsinghua Lion Team</strong>, Tsinghua University. <em>Research Intern</em></p>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <!-- Visitor Map Section -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle;text-align:center">
+              <!-- ClustrMaps Visitor Map - width set to 400px -->
+              <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=m5zbV5fNTiHoys0lNXBHen9pX6bU-2kCkqkp6Eh0cAg&cl=ffffff&w=400"></script>
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:0px">
+              <br>
+              <!-- <p style="text-align:center;font-size:small;">
+                Design and source code from <a style="font-size:small;" href="https://jonbarron.info">Jon Barron's website</a>
+              </p> -->
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>
+

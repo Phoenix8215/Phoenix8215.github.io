@@ -1,0 +1,70 @@
+name: Update GitHub Stats
+
+on:
+  # 每周一 UTC 00:00 自动运行（北京时间周一早上 8:00）
+  schedule:
+    - cron: '0 0 * * 1'
+  
+  # 允许手动触发
+  workflow_dispatch:
+  
+  # 当更新脚本被修改时也运行
+  push:
+    paths:
+      - 'update_github_stats.py'
+      - '.github/workflows/update-stats.yml'
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: 📦 Install dependencies
+        run: |
+          pip install requests
+      
+      - name: 🔄 Update GitHub stats
+        run: |
+          python update_github_stats.py
+      
+      - name: 📝 Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet _contributions/; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ 没有检测到变化"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "✅ 检测到数据更新"
+          fi
+      
+      - name: 💾 Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add _contributions/*.md
+          git commit -m "🤖 Auto update GitHub stats [skip ci]"
+          git push
+      
+      - name: 📢 Summary
+        run: |
+          echo "### 更新完成 ✅" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.check_changes.outputs.has_changes }}" == "true" ]; then
+            echo "- 已更新 GitHub 仓库统计信息" >> $GITHUB_STEP_SUMMARY
+            echo "- 更改已自动提交到仓库" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- 数据未发生变化，无需更新" >> $GITHUB_STEP_SUMMARY
+          fi
+

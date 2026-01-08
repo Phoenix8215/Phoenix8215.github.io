@@ -1,0 +1,28 @@
+# Jekyll generated site
+_site/
+
+# Jekyll cache
+.jekyll-cache/
+.jekyll-metadata
+.jekyll
+
+# Bundler
+.bundle/
+Gemfile.lock
+
+# Sass cache
+.sass-cache/
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+package.json
+package-lock.json
+
+# Local development
+serve.sh
+
+# Others
+favicon.ico
