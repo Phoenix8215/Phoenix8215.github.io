@@ -17,12 +17,17 @@ on:
 jobs:
   update-stats:
     runs-on: ubuntu-latest
+    # Grant write permissions to allow pushing changes
+    permissions:
+      contents: write
     
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # Persist credentials to allow git push
+          persist-credentials: true
       
       - name: 🐍 Set up Python
         uses: actions/setup-python@v5
@@ -55,7 +60,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add _contributions/*.md
           git commit -m "🤖 Auto update GitHub stats [skip ci]"
-          git push
+          git push origin HEAD:master
       
       - name: 📢 Summary
         run: |
