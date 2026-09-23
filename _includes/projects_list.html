@@ -1,0 +1,38 @@
+<!-- Projects section: compact two-column layout with small icons -->
+<tr>
+  <td style="padding:2.5%;padding-top:1%;width:100%;vertical-align:top">
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+      <tr>
+        {% for project in site.projects %}
+        <td style="width:50%;vertical-align:middle;padding:8px;">
+          <table style="border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="width:55px;vertical-align:middle;padding-right:10px;">
+                <img src="{{project.image}}" alt="project image" style="width:50px; height:50px; object-fit:cover; border-radius:6px;" />
+              </td>
+              <td style="vertical-align:middle">
+                {% if project.code %}
+                <h3><a href="{{project.code}}">{{project.title}}</a></h3>
+                {% else %}
+                <h3>{{project.title}}</h3>
+                {% endif %}
+                {% if project.website %}
+                <br><a href="{{project.website}}" style="font-size:12px;">website</a>
+                {% endif %}
+                {% if project.paper %}
+                <a href="{{project.paper}}" style="font-size:12px;">paper</a>
+                {% endif %}
+              </td>
+            </tr>
+          </table>
+        </td>
+        {% assign mod = forloop.index | modulo: 2 %}
+        {% if mod == 0 and forloop.last == false %}
+      </tr>
+      <tr>
+        {% endif %}
+        {% endfor %}
+      </tr>
+    </table>
+  </td>
+</tr>

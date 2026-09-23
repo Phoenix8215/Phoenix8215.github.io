@@ -1,0 +1,48 @@
+<!-- Research section: displays posts with 'research' category -->
+{% for post in site.posts %}
+{% for cat in post.categories %}
+{% if cat == 'research' %}
+<tr>
+  <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
+    <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+  </td>
+  <td style="padding:2.5%;width:75%;vertical-align:middle">
+    <h3>{{post.title}}</h3>
+    <br>
+    {{post.authors}}
+
+    <br>
+    <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
+    {% if post.presentation %}
+    <span style="color: red;">({{post.presentation}})</span>
+    {% endif %}
+    <br>
+    {% if post.arxiv %}
+    <a href="{{post.arxiv}}">arxiv</a>
+    {% endif %}
+    {% if post.video %}
+    {% if post.arxiv %} / {% endif %}<a href="{{post.video}}">video</a>
+    {% endif %}
+    {% if post.code %}
+    {% if post.arxiv or post.video %} / {% endif %}<a href="{{post.code}}">code</a>
+    {% endif %}
+    {% if post.poster %}
+    {% if post.arxiv or post.video or post.code %} / {% endif %}<a href="{{post.poster}}">poster</a>
+    {% endif %}
+    {% if post.slides %}
+    {% if post.arxiv or post.video or post.code or post.poster %} / {% endif %}<a href="{{post.slides}}">slides</a>
+    {% endif %}
+    {% if post.website %}
+    {% if post.arxiv or post.video or post.code or post.poster or post.slides %} / {% endif %}<a href="{{post.website}}">website</a>
+    {% endif %}
+    {% if post.youtube %}
+    {% if post.arxiv or post.video or post.code or post.poster or post.slides or post.website %} / {% endif %}<a href="{{post.youtube}}">youtube</a>
+    {% endif %}
+    <p></p>
+    {{ post.excerpt }}
+  </td>
+</tr>
+{% endif %}
+{% endfor %}
+{% endfor %}
+
