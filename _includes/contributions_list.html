@@ -1,33 +1,29 @@
-<!-- Contributions section: displays all items from _contributions collection in two columns -->
+<!-- Contributions section: items from _contributions, sorted by `order` and listed under their `era` divider -->
+{% assign groups = site.contributions | sort: "order" | group_by: "era" %}
 <tr>
   <td style="padding:2.5%;padding-top:1%;width:100%;vertical-align:top">
     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+      {% for group in groups %}
       <tr>
-        {% for contrib in site.contributions %}
-        <td style="width:50%;vertical-align:top;padding:10px;">
-          {% if contrib.repo %}
-          <h3><a href="{{contrib.repo}}">{{contrib.title}}</a></h3>
-          {% else %}
-          <h3>{{contrib.title}}</h3>
-          {% endif %}
-          &nbsp;
-          {% if contrib.stars %}
-          <span style="color: #1772d0;">⭐ {{contrib.stars}}</span>
-          {% endif %}
-          {% if contrib.forks %}
-          &nbsp;<span style="color: #666;">🍴 {{contrib.forks}}</span>
-          {% endif %}
-          {% if contrib.pr %}
-          <br><a href="{{contrib.pr}}">pull request</a>
-          {% endif %}
+        <td></td>
+        <td style="padding:16px 0 8px 0;">
+          <div style="display:flex;align-items:center;color:#666;font-style:italic;">
+            <span style="flex:1;border-top:1px solid #aaa;"></span>
+            <span style="padding:0 12px;">{{ group.name }}</span>
+            <span style="flex:1;border-top:1px solid #aaa;"></span>
+          </div>
         </td>
-        {% assign mod = forloop.index | modulo: 2 %}
-        {% if mod == 0 and forloop.last == false %}
       </tr>
+      {% for contrib in group.items %}
       <tr>
-        {% endif %}
-        {% endfor %}
+        <td style="width:15%;padding:4px 16px 4px 0;text-align:right;vertical-align:top;white-space:nowrap;color:#666;">{{ contrib.stars | upcase }} <i class="fas fa-star"></i></td>
+        <td style="padding:4px 0;vertical-align:top;">
+          <a href="{{ contrib.repo }}"><strong>{{ contrib.title }}</strong></a> &mdash; {{ contrib.summary }}
+          {% if contrib.note %}<br>{{ contrib.note }}{% endif %}
+        </td>
       </tr>
+      {% endfor %}
+      {% endfor %}
     </table>
   </td>
 </tr>

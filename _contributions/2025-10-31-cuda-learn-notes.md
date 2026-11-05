@@ -1,9 +1,13 @@
 ---
-title: "CUDA-Learn-Notes"
+title: "LeetCUDA"
 date: 2025-10-31 22:21:59 +00:00
 repo: https://github.com/xlite-dev/LeetCUDA
 stars: "12.1k"
 forks: "1.3k"
+era: "before the code-agent era"
+order: 1
+summary: "CUDA kernel learning and benchmarking collection."
+note: "Fixed a numerical-overflow bug in the softmax exponential computation."
 ---
 A comprehensive collection of 200+ Tensor/CUDA Cores Kernels, featuring flash-attention-mma, hgemm with WMMA, MMA and CuTe implementations achieving 98%~100% TFLOPS of cuBLAS/FA2 performance. 
 
